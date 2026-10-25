@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://ctqpahmyeth1d"]
+
+[ext_resource type="Script" uid="uid://3xtgcceegtku" path="res://features/root/root_context.gd" id="1_vrd1y"]
+
+[node name="RootContext" type="Node2D" unique_id=637265361]
+script = ExtResource("1_vrd1y")
