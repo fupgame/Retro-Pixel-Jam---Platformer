@@ -1,6 +1,13 @@
 class_name MusicPlayer extends AudioStreamPlayer
 
 var _debug: Debug
+var _bus_index: int
+
+
+func build() -> void:
+	bus = "Music"
+	_bus_index = AudioServer.get_bus_index(bus)
+	
 
 
 func bind_dependencies(debug: Debug) -> void:
@@ -16,3 +23,11 @@ func play_music(audio: AudioStream) -> void:
 	
 	stream = audio
 	play()
+
+
+func change_volume_db(value: float) -> void:
+	if value == -10:
+		AudioServer.set_bus_mute(_bus_index, true)
+	else:
+		AudioServer.set_bus_mute(_bus_index, false)
+		AudioServer.set_bus_volume_db(_bus_index, value)

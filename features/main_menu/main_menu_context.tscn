@@ -1,13 +1,15 @@
 [gd_scene format=3 uid="uid://c6s7m10an26mg"]
 
 [ext_resource type="Script" uid="uid://sca4uipdqyh5" path="res://features/main_menu/main_menu_context.gd" id="1_a16ur"]
+[ext_resource type="PackedScene" uid="uid://c8yx2dga5di3f" path="res://features/main_menu/ui/main_menu_ui.tscn" id="2_e8bqb"]
+[ext_resource type="PackedScene" uid="uid://dub6t5rxcjc6s" path="res://features/main_menu/ui/setting_ui.tscn" id="3_av54u"]
 
 [node name="MainMenuContext" type="Node2D" unique_id=166491405]
 script = ExtResource("1_a16ur")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=340287539]
 
-[node name="Control" type="Control" parent="CanvasLayer" unique_id=1611056760]
+[node name="Container" type="Control" parent="CanvasLayer" unique_id=1611056760]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -15,25 +17,35 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Control" unique_id=1290353817]
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/Container" unique_id=1347779068]
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -76.5
-offset_top = -20.0
-offset_right = 76.5
-offset_bottom = 20.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
 
-[node name="Label" type="Label" parent="CanvasLayer/Control/VBoxContainer" unique_id=1399205647]
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Container/MarginContainer" unique_id=1290353817]
 layout_mode = 2
-text = "Main Menu Context"
+size_flags_horizontal = 4
+size_flags_vertical = 8
+theme_override_constants/separation = 40
+alignment = 1
 
-[node name="StartGameButton" type="Button" parent="CanvasLayer/Control/VBoxContainer" unique_id=1327488046]
+[node name="TitleLabel" type="Label" parent="CanvasLayer/Container/MarginContainer/VBoxContainer" unique_id=1399205647]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "Retro Platformer"
+horizontal_alignment = 1
+
+[node name="MainMenuUi" parent="CanvasLayer/Container/MarginContainer/VBoxContainer" unique_id=1666463573 instance=ExtResource("2_e8bqb")]
 unique_name_in_owner = true
 layout_mode = 2
-text = "Start Game"
+
+[node name="SettingUI" parent="CanvasLayer/Container/MarginContainer/VBoxContainer" unique_id=1999747987 instance=ExtResource("3_av54u")]
+unique_name_in_owner = true
+layout_mode = 2

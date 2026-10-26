@@ -27,15 +27,21 @@ func build() -> void:
 	_debug = Debug.new()
 	_debug.name = "Debug"
 	add_child(_debug)
+	
 	_music_player = MusicPlayer.new()
+	_music_player.build()
 	_music_player.name = "MusicPlayer"
 	add_child(_music_player)
+	
 	_sfx_player = SFXPlayer.new()
+	_sfx_player.build()
 	_sfx_player.name = "SFXPlayer"
 	add_child(_sfx_player)
+	
 	_input_handler = InputHandler.new()
 	_input_handler.name = "InputHandler"
 	add_child(_input_handler)
+	
 	_input_blocker = InputBlocker.new()
 	_input_blocker.name = "InputBlocker"
 	add_child(_input_blocker)
@@ -43,6 +49,8 @@ func build() -> void:
 
 func bind_dependencies() -> void:
 	_input_handler.bind_dependencies(_debug, _input_blocker)
+	_music_player.bind_dependencies(_debug)
+	_sfx_player.bind_dependencies(_debug)
 
 
 func setup() -> void:
@@ -63,10 +71,11 @@ func mount_main_menu() -> void:
 	add_child(main_menu_context)
 	main_menu_context.name = "MainMenuContext"
 	main_menu_context.build()
-	main_menu_context.bind_dependencies(_debug, _music_player, _input_handler, _input_blocker)
+	main_menu_context.bind_dependencies(_debug, _music_player, _sfx_player, _input_handler, _input_blocker)
 	main_menu_context.setup()
 	
 	main_menu_context.start_game_requested.connect(mount_game)
+	main_menu_context.quit_game_requested.connect(exit_game)
 
 
 func mount_game() -> void:
@@ -87,3 +96,7 @@ func mount_game() -> void:
 	game_context.setup()
 	
 	game_context.main_menu_requested.connect(mount_main_menu)
+
+
+func exit_game() -> void:
+	get_tree().quit()

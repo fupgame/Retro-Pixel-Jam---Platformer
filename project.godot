@@ -15,6 +15,10 @@ run/main_scene="uid://ctqpahmyeth1d"
 config/features=PackedStringArray("4.7", "GL Compatibility")
 config/icon="res://icon.svg"
 
+[audio]
+
+buses/default_bus_layout="uid://b4y8kgwg0vsfa"
+
 [debug]
 
 gdscript/warnings/untyped_declaration=2

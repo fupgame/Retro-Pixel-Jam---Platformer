@@ -1,0 +1,43 @@
+[gd_scene format=3 uid="uid://c8yx2dga5di3f"]
+
+[ext_resource type="Script" uid="uid://b0tpo8eca6ejc" path="res://features/main_menu/ui/main_menu_ui.gd" id="1_4bjlx"]
+[ext_resource type="Theme" uid="uid://bqtgblvh07e00" path="res://assets/theme/main_theme.tres" id="1_jv00w"]
+
+[node name="MainMenuUi" type="PanelContainer" unique_id=1666463573]
+size_flags_horizontal = 4
+size_flags_vertical = 8
+script = ExtResource("1_4bjlx")
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=17968217]
+layout_mode = 2
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_right = 4
+theme_override_constants/margin_bottom = 4
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=1784420673]
+custom_minimum_size = Vector2(80, 0)
+custom_maximum_size = Vector2(80, -1)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/separation = 2
+
+[node name="StartGameButton" type="Button" parent="MarginContainer/VBoxContainer" unique_id=266879438]
+unique_name_in_owner = true
+layout_mode = 2
+theme = ExtResource("1_jv00w")
+text = "Start Game"
+
+[node name="SettingsButton" type="Button" parent="MarginContainer/VBoxContainer" unique_id=410363521]
+unique_name_in_owner = true
+layout_mode = 2
+theme = ExtResource("1_jv00w")
+text = "Settings"
+
+[node name="QuitButton" type="Button" parent="MarginContainer/VBoxContainer" unique_id=1511199579]
+unique_name_in_owner = true
+layout_mode = 2
+theme = ExtResource("1_jv00w")
+text = "Quit
+"
