@@ -15,14 +15,20 @@ func bind_dependencies(debug: Debug) -> void:
 
 
 func play_music(audio: AudioStream) -> void:
-	if stream:
-		stream = null
+	stop_music()
 	
 	# TODO: Сделать плавное затухание и наростание
 	# TODO: Сделать возмодность устанавливать громкость в аргументе
 	
 	stream = audio
 	play()
+
+
+func stop_music() -> void:
+	if stream:
+		stream = null
+	
+	stop()
 
 
 func change_volume_db(value: float) -> void:

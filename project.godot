@@ -10,7 +10,8 @@ config_version=5
 
 [application]
 
-config/name="Retro Pixel Jam - Platformer"
+config/name="The Pumpkin Scarecrow’s Adventure"
+config/version="v.1.2.0"
 run/main_scene="uid://ctqpahmyeth1d"
 config/features=PackedStringArray("4.7", "GL Compatibility")
 config/icon="res://icon.svg"

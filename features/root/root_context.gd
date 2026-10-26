@@ -58,8 +58,7 @@ func setup() -> void:
 
 
 func mount_main_menu() -> void:
-	if _current_subcontext_node:
-		_current_subcontext_node.queue_free()
+	demount()
 	
 	_current_subcontext = SubCOntext.MAIN_MENU
 	_current_subcontext_node = MAIN_MENU_CONTEXT_SCENE.instantiate()
@@ -79,8 +78,7 @@ func mount_main_menu() -> void:
 
 
 func mount_game() -> void:
-	if _current_subcontext_node:
-		_current_subcontext_node.queue_free()
+	demount()
 	
 	_current_subcontext = SubCOntext.GAME
 	_current_subcontext_node = GAME_CONTEXT_SCENE.instantiate()
@@ -96,6 +94,13 @@ func mount_game() -> void:
 	game_context.setup()
 	
 	game_context.main_menu_requested.connect(mount_main_menu)
+
+
+func demount() -> void:
+	if _current_subcontext_node:
+		_current_subcontext_node.queue_free()
+	
+	_music_player.stop_music()
 
 
 func exit_game() -> void:
