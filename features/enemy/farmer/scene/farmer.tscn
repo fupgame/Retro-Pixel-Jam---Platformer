@@ -1,0 +1,59 @@
+[gd_scene format=3 uid="uid://dm04cd8ynu8pl"]
+
+[ext_resource type="Script" uid="uid://dur12c0cqwdw3" path="res://features/enemy/enemy.gd" id="1_nbh43"]
+[ext_resource type="SpriteFrames" uid="uid://dapy4tcd6iwws" path="res://features/enemy/farmer/resources/farmer_sprite_frames.tres" id="2_2ydob"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ikn6h"]
+radius = 5.0
+height = 22.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_p7mmg"]
+radius = 7.0
+height = 26.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ikn6h"]
+size = Vector2(18.25, 11)
+
+[node name="Farmer" type="CharacterBody2D" unique_id=1287379335 node_paths=PackedStringArray("animated_sprite")]
+collision_layer = 4
+script = ExtResource("1_nbh43")
+animated_sprite = NodePath("FarmerAnimatedSprite")
+_max_speed = 40.0
+_knockback_force = 50.0
+
+[node name="TimerAttack" type="Timer" parent="." unique_id=422059133]
+wait_time = 0.5
+one_shot = true
+
+[node name="FarmerAnimatedSprite" type="AnimatedSprite2D" parent="." unique_id=461970506]
+position = Vector2(0, -16)
+sprite_frames = ExtResource("2_2ydob")
+animation = &"attack"
+autoplay = "idle"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=249754850]
+position = Vector2(0, -11)
+shape = SubResource("CapsuleShape2D_ikn6h")
+
+[node name="PlayerDetector" type="RayCast2D" parent="." unique_id=89276992]
+position = Vector2(0, -13)
+target_position = Vector2(18, 0)
+collision_mask = 2
+
+[node name="HurtBox" type="Area2D" parent="." unique_id=2064080065]
+position = Vector2(0, -13)
+collision_layer = 512
+collision_mask = 64
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox" unique_id=942692926]
+shape = SubResource("CapsuleShape2D_p7mmg")
+debug_color = Color(0.7426457, 0.4557554, 0.23606825, 0.41960785)
+
+[node name="HitBox" type="Area2D" parent="." unique_id=1672487615]
+collision_layer = 256
+collision_mask = 0
+
+[node name="HitBoxCollisionShape" type="CollisionShape2D" parent="HitBox" unique_id=954998152]
+position = Vector2(8.875, -7)
+shape = SubResource("RectangleShape2D_ikn6h")
+debug_color = Color(0.8795105, 0.2568274, 0.56828874, 0.41960785)

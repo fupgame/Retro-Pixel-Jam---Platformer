@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://83yr3euw28j2"]
+
+[ext_resource type="Script" uid="uid://j72iemgy5jpq" path="res://features/game/collectable/collectable.gd" id="1_pcisv"]
+[ext_resource type="Resource" uid="uid://wthof2n61cwb" path="res://features/game/collectable/items/carrot_data.tres" id="2_lr02v"]
+[ext_resource type="Texture2D" uid="uid://l5r8reg75ymt" path="res://features/game/level/levels/cansas/assets/sprites/tilemap_cansas.png" id="3_btjlk"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hjk3w"]
+atlas = ExtResource("3_btjlk")
+region = Rect2(0, 112, 16, 16)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ikn6h"]
+radius = 7.0
+
+[node name="Carrot" type="Node2D" unique_id=1729960315]
+script = ExtResource("1_pcisv")
+collectable_data = ExtResource("2_lr02v")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1141270620]
+texture = SubResource("AtlasTexture_hjk3w")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=908884808]
+collision_layer = 8
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1173908931]
+shape = SubResource("CircleShape2D_ikn6h")

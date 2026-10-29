@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://di521q5875x4r"]
+
+[ext_resource type="Script" uid="uid://sh0bea3q4c5x" path="res://features/game/level/platforms/platform.gd" id="1_236uo"]
+[ext_resource type="TileSet" uid="uid://d15hkkq0amfm6" path="res://features/game/level/levels/cansas/assets/resources/cansas_tile_set.tres" id="1_u7vgb"]
+
+[node name="Platform" type="AnimatableBody2D" unique_id=239735476]
+z_index = -1
+collision_layer = 32
+collision_mask = 0
+script = ExtResource("1_236uo")
+_duration = 4.0
+
+[node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=3448117]
+tile_map_data = PackedByteArray(0, 0, 255, 255, 0, 0, 1, 0, 1, 0, 3, 0, 0, 0, 0, 0, 0, 0, 1, 0, 1, 0, 3, 0, 0, 0, 254, 255, 0, 0, 1, 0, 0, 0, 3, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0, 3, 0, 0, 0)
+tile_set = ExtResource("1_u7vgb")
+use_kinematic_bodies = true

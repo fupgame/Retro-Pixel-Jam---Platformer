@@ -1,0 +1,74 @@
+[gd_scene format=3 uid="uid://cuf2n2r328ra8"]
+
+[ext_resource type="SpriteFrames" uid="uid://u5dth05wgfmt" path="res://features/player/resources/animated_sprites/player_sprite_frames.tres" id="1_icrnf"]
+[ext_resource type="Script" uid="uid://c4rfs22gilrke" path="res://features/player/scene/player.gd" id="1_sbatd"]
+[ext_resource type="SpriteFrames" uid="uid://ho6rt7wrkybc" path="res://features/player/resources/animated_sprites/player_attack_sprite_frames.tres" id="3_fkmm5"]
+[ext_resource type="SpriteFrames" uid="uid://cotim28x0fs4n" path="res://features/player/resources/animated_sprites/arms_sprite_frames.tres" id="4_gohu5"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_sbatd"]
+radius = 5.0
+height = 22.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ikn6h"]
+size = Vector2(29, 12)
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_gohu5"]
+radius = 5.0
+height = 22.0
+
+[node name="Player" type="CharacterBody2D" unique_id=379690128]
+collision_layer = 2
+collision_mask = 33
+floor_stop_on_slope = false
+floor_constant_speed = true
+floor_max_angle = 0.87266463
+floor_snap_length = 6.0
+script = ExtResource("1_sbatd")
+_max_health = 30
+_jump_force = -280.0
+_coyote_time = 0.2
+_gravity = 980.0
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=416599188]
+
+[node name="PlayerAnimatedSprite" type="AnimatedSprite2D" parent="." unique_id=1933363206]
+position = Vector2(0, -16)
+sprite_frames = ExtResource("1_icrnf")
+animation = &"dead"
+autoplay = "idle"
+
+[node name="AttackAnimatedSprite" type="AnimatedSprite2D" parent="." unique_id=1050134296]
+position = Vector2(0, -16)
+sprite_frames = ExtResource("3_fkmm5")
+animation = &"attack_01"
+autoplay = "idle"
+frame = 1
+
+[node name="ArmsAnimatedSprite" type="AnimatedSprite2D" parent="." unique_id=287523414]
+position = Vector2(0, -16)
+sprite_frames = ExtResource("4_gohu5")
+animation = &"attack_02"
+autoplay = "idle"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1435133560]
+position = Vector2(-1, -11)
+shape = SubResource("CapsuleShape2D_sbatd")
+
+[node name="HitBox" type="Area2D" parent="." unique_id=864158388]
+collision_layer = 64
+collision_mask = 0
+
+[node name="HitBoxCollisionShape" type="CollisionShape2D" parent="HitBox" unique_id=1386749584]
+position = Vector2(14.5, -8)
+shape = SubResource("RectangleShape2D_ikn6h")
+debug_color = Color(0.8795105, 0.2568274, 0.56828874, 0.41960785)
+
+[node name="HurtBox" type="Area2D" parent="." unique_id=278786630]
+position = Vector2(0, -13)
+collision_layer = 128
+collision_mask = 256
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox" unique_id=1644640536]
+position = Vector2(-1, 2)
+shape = SubResource("CapsuleShape2D_gohu5")
+debug_color = Color(0.7426457, 0.4557554, 0.23606825, 0.41960785)

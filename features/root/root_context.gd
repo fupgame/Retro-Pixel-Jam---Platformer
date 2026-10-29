@@ -84,13 +84,13 @@ func mount_game() -> void:
 	_current_subcontext_node = GAME_CONTEXT_SCENE.instantiate()
 	var game_context: GameContext = _current_subcontext_node as GameContext
 	if not game_context:
-		push_error("[ROOT] Game context not found")
+		_debug.error("Game context not found", self.name)
 		return
 	
 	add_child(game_context)
 	game_context.name = "GameContext"
 	game_context.build()
-	game_context.bind_dependencies()
+	game_context.bind_dependencies(_debug, _music_player, _sfx_player, _input_handler, _input_blocker)
 	game_context.setup()
 	
 	game_context.main_menu_requested.connect(mount_main_menu)

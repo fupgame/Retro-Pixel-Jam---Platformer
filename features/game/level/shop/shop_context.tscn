@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://bsfjjllqhb0er"]
+
+[ext_resource type="Script" uid="uid://31vousmqqyx5" path="res://features/game/level/shop/shop_context.gd" id="1_nrvi3"]
+
+[node name="ShopContext" type="Node2D" unique_id=1731431749]
+script = ExtResource("1_nrvi3")
+
+[node name="Label" type="Label" parent="." unique_id=2028055172]
+offset_left = 11.0
+offset_top = 16.0
+offset_right = 110.0
+offset_bottom = 39.0
+text = "Shop Context"

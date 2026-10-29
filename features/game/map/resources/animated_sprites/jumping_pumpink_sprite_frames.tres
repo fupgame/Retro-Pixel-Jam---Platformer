@@ -1,0 +1,60 @@
+[gd_resource type="SpriteFrames" format=3 uid="uid://d4jpqgukfmboy"]
+
+[ext_resource type="Texture2D" uid="uid://c0xmmnui0v4n8" path="res://features/game/map/assets/sprites/jamp_pumpkin_on_map.png" id="1_n1hhk"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1c8dg"]
+atlas = ExtResource("1_n1hhk")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7j838"]
+atlas = ExtResource("1_n1hhk")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qnd6w"]
+atlas = ExtResource("1_n1hhk")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xnv18"]
+atlas = ExtResource("1_n1hhk")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6cnt0"]
+atlas = ExtResource("1_n1hhk")
+region = Rect2(64, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jhtoq"]
+atlas = ExtResource("1_n1hhk")
+region = Rect2(80, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x1b8v"]
+atlas = ExtResource("1_n1hhk")
+region = Rect2(96, 0, 16, 16)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1c8dg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7j838")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qnd6w")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xnv18")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6cnt0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jhtoq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x1b8v")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 10.0
+}]

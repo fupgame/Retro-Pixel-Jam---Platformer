@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://cyrxtkpuid2rf"]
 
 [ext_resource type="Script" uid="uid://3qk6qcaxfpvj" path="res://features/game/game_context.gd" id="1_bp3ee"]
+[ext_resource type="Theme" uid="uid://bqtgblvh07e00" path="res://assets/theme/main_theme.tres" id="2_e6fin"]
 
 [node name="GameContext" type="Node2D" unique_id=941208071]
 script = ExtResource("1_bp3ee")
@@ -8,6 +9,7 @@ script = ExtResource("1_bp3ee")
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=987911997]
 
 [node name="Control" type="Control" parent="CanvasLayer" unique_id=1546210730]
+visible = false
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -23,18 +25,34 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -76.5
-offset_top = -20.0
+offset_top = -22.0
 offset_right = 76.5
-offset_bottom = 20.0
+offset_bottom = 22.0
 grow_horizontal = 2
 grow_vertical = 2
-alignment = 1
 
 [node name="Label" type="Label" parent="CanvasLayer/Control/VBoxContainer" unique_id=77839512]
 layout_mode = 2
 text = "Game Context"
+horizontal_alignment = 1
 
-[node name="ExitGameButton" type="Button" parent="CanvasLayer/Control/VBoxContainer" unique_id=207817785]
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Control/VBoxContainer" unique_id=91432773]
+custom_minimum_size = Vector2(80, 0)
+custom_maximum_size = Vector2(80, -1)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="MapButton" type="Button" parent="CanvasLayer/Control/VBoxContainer/VBoxContainer" unique_id=908099562]
 unique_name_in_owner = true
 layout_mode = 2
+size_flags_vertical = 4
+theme = ExtResource("2_e6fin")
+text = "Go to Map"
+
+[node name="ExitGameButton" type="Button" parent="CanvasLayer/Control/VBoxContainer/VBoxContainer" unique_id=207817785]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 4
+theme = ExtResource("2_e6fin")
 text = "Exit Game"

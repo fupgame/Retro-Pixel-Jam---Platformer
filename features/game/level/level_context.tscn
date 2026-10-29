@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://cfbsrft6edo7s"]
+
+[ext_resource type="Script" uid="uid://b6onbcgsc4gta" path="res://features/game/level/level_context.gd" id="1_t7qbt"]
+
+[node name="LevelContext" type="Node2D" unique_id=1421236811]
+script = ExtResource("1_t7qbt")
+
+[node name="Label" type="Label" parent="." unique_id=1680197981]
+offset_left = 11.0
+offset_top = 16.0
+offset_right = 110.0
+offset_bottom = 39.0
+text = "Level Context"

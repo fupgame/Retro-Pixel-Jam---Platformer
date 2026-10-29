@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://38x7bj2bg4q0"]
+
+[ext_resource type="Script" uid="uid://dgcyg3886eya4" path="res://features/game/result_game/result_game.gd" id="1_kvidx"]
+
+[node name="ResultGame" type="Node2D" unique_id=1603970647]
+script = ExtResource("1_kvidx")
+
+[node name="Label" type="Label" parent="." unique_id=1992539035]
+offset_left = 11.0
+offset_top = 16.0
+offset_right = 110.0
+offset_bottom = 39.0
+text = "Result Game Context"

@@ -6,6 +6,7 @@
 [node name="MainMenuUi" type="PanelContainer" unique_id=1666463573]
 size_flags_horizontal = 4
 size_flags_vertical = 8
+theme = ExtResource("1_jv00w")
 script = ExtResource("1_4bjlx")
 
 [node name="MarginContainer" type="MarginContainer" parent="." unique_id=17968217]

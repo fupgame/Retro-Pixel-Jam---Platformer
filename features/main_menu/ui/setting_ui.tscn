@@ -41,9 +41,9 @@ unique_name_in_owner = true
 custom_minimum_size = Vector2(120, 0)
 layout_mode = 2
 theme = ExtResource("2_5awv5")
-min_value = -10.0
-max_value = 10.0
-value = -5.0
+min_value = -25.0
+max_value = 5.0
+value = -20.0
 
 [node name="SFXVolumeContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/VBoxContainer" unique_id=1544046840]
 layout_mode = 2

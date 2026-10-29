@@ -32,7 +32,7 @@ func stop_music() -> void:
 
 
 func change_volume_db(value: float) -> void:
-	if value == -10:
+	if value == -25:
 		AudioServer.set_bus_mute(_bus_index, true)
 	else:
 		AudioServer.set_bus_mute(_bus_index, false)

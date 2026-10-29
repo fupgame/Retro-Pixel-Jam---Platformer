@@ -1,5 +1,8 @@
 [gd_resource type="Theme" format=3 uid="uid://bqtgblvh07e00"]
 
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_5d7lq"]
+
 [resource]
 Button/font_sizes/font_size = 6
 HSlider/constants/center_grabber = 0
+PanelContainer/styles/panel = SubResource("StyleBoxEmpty_5d7lq")
