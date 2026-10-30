@@ -90,6 +90,8 @@ func mount_level() -> void:
 	level_context.bind_dependencies(_debug, _sfx_player, _input_handler, _input_blocker, _game_state)
 	level_context.setup()
 	
+	level_context.main_menu_requested.connect(main_menu_requested.emit)
+	
 	_game_state.change_state(GameState.State.ON_LEVEL)
 
 

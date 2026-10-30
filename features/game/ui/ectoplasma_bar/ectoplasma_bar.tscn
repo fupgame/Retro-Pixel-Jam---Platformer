@@ -1,0 +1,25 @@
+[gd_scene format=3 uid="uid://buaa4afb5ed5u"]
+
+[ext_resource type="Script" uid="uid://c2ceesiolkw2b" path="res://features/game/ui/ectoplasma_bar/ectoplasma_bar.gd" id="1_sh5vo"]
+
+[node name="EctoplasmaBar" type="Control" unique_id=1734143692]
+custom_minimum_size = Vector2(12, 12)
+layout_mode = 3
+anchors_preset = 0
+size_flags_horizontal = 0
+size_flags_vertical = 0
+script = ExtResource("1_sh5vo")
+
+[node name="IconContainer" type="HBoxContainer" parent="." unique_id=760205470]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -30.0
+offset_top = -6.0
+offset_bottom = 6.0
+grow_horizontal = 0
+grow_vertical = 2
+alignment = 2

@@ -1,0 +1,38 @@
+[gd_scene format=3 uid="uid://83yr3euw28j2"]
+
+[ext_resource type="Script" uid="uid://j72iemgy5jpq" path="res://features/game/collectable/collectable.gd" id="1_a4wxr"]
+[ext_resource type="SpriteFrames" uid="uid://5on1rc5ixiht" path="res://features/game/collectable/items/carrot/assets/resources/carrot_sprite_frames.tres" id="2_mg38o"]
+[ext_resource type="AudioStream" uid="uid://behub87o1p6rw" path="res://features/game/collectable/items/coin/assets/sfx/Collect_Point_2.wav" id="2_y44ts"]
+[ext_resource type="AudioStream" uid="uid://cc8eayfnn2sr6" path="res://features/game/collectable/items/carrot/assets/sfx/Collect_Big_Point.wav" id="3_2t0tp"]
+[ext_resource type="SpriteFrames" uid="uid://dtx4p6w318rcw" path="res://features/game/collectable/items/coin/assets/resources/coin_sprite_frames.tres" id="3_a4wxr"]
+[ext_resource type="SpriteFrames" uid="uid://bs47bjtf48pwd" path="res://features/game/collectable/items/ektoplasma/assets/resources/ectoplasma_sprite_frames.tres" id="4_cmyh6"]
+[ext_resource type="AudioStream" uid="uid://ciexr0jxj615p" path="res://features/game/collectable/items/ektoplasma/assets/sfx/Activate_Power.wav" id="6_cmyh6"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ikn6h"]
+
+[node name="Coin" type="Node2D" unique_id=1729960315]
+script = ExtResource("1_a4wxr")
+carrot_frames = ExtResource("2_mg38o")
+carrot_sfx = ExtResource("3_2t0tp")
+coin_frames = ExtResource("3_a4wxr")
+coin_sfx = ExtResource("2_y44ts")
+ectoplasm_frames = ExtResource("4_cmyh6")
+ectoplasm_sfx = ExtResource("6_cmyh6")
+
+[node name="CollectSFX" type="AudioStreamPlayer2D" parent="." unique_id=341647330]
+stream = ExtResource("2_y44ts")
+bus = &"SFX"
+
+[node name="AnimatedSprite" type="AnimatedSprite2D" parent="." unique_id=40194929]
+sprite_frames = ExtResource("3_a4wxr")
+animation = &"idle"
+frame_progress = 0.78802377
+
+[node name="CollectedArea" type="Area2D" parent="." unique_id=908884808]
+collision_layer = 8
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CollectedArea" unique_id=1173908931]
+shape = SubResource("CircleShape2D_ikn6h")
+
+[connection signal="body_entered" from="CollectedArea" to="." method="_on_collected_area_body_entered"]

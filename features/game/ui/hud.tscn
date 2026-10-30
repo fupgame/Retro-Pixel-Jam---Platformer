@@ -1,0 +1,38 @@
+[gd_scene format=3 uid="uid://b2d0kmpto3638"]
+
+[ext_resource type="PackedScene" uid="uid://gflg8ni0yk4d" path="res://features/game/ui/health_bar/health_bar.tscn" id="1_8arg3"]
+[ext_resource type="Script" uid="uid://bjgbkuimvivtt" path="res://features/game/ui/hud.gd" id="1_schqf"]
+[ext_resource type="PackedScene" uid="uid://bu5byn6rv6nyd" path="res://features/game/ui/score_bar/score_bar.tscn" id="2_8arg3"]
+[ext_resource type="PackedScene" uid="uid://buaa4afb5ed5u" path="res://features/game/ui/ectoplasma_bar/ectoplasma_bar.tscn" id="3_8arg3"]
+
+[node name="HUD" type="CanvasLayer" unique_id=1180093885]
+script = ExtResource("1_schqf")
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1076952867]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="HealthBar" parent="MarginContainer" unique_id=1712828859 instance=ExtResource("1_8arg3")]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=1250709643]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="ScoreBar" parent="MarginContainer/VBoxContainer" unique_id=97678735 instance=ExtResource("2_8arg3")]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 8
+
+[node name="EctoplasmaBar" parent="MarginContainer/VBoxContainer" unique_id=1734143692 instance=ExtResource("3_8arg3")]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 8

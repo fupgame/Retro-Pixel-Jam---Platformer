@@ -1,0 +1,33 @@
+[gd_scene format=3 uid="uid://gflg8ni0yk4d"]
+
+[ext_resource type="Script" uid="uid://xv6f4gsfvs7k" path="res://features/game/ui/health_bar/health_bar.gd" id="1_3hols"]
+[ext_resource type="PackedScene" uid="uid://cxeyhu26fnohi" path="res://features/game/ui/health_bar/health_icon.tscn" id="2_hmcpf"]
+[ext_resource type="AudioStream" uid="uid://cjqh63d1f6x73" path="res://features/game/ui/health_bar/asesst/sfx/High_Score.wav" id="2_l28jk"]
+[ext_resource type="AudioStream" uid="uid://t32qn3ps2ahr" path="res://features/game/ui/health_bar/asesst/sfx/Fire_Hit_02.wav" id="3_5pqvf"]
+
+[node name="HealthBar" type="Control" unique_id=1712828859]
+layout_mode = 3
+anchors_preset = 0
+pivot_offset = Vector2(216, -16)
+script = ExtResource("1_3hols")
+health_up_sfx = ExtResource("2_l28jk")
+health_down_sfx = ExtResource("3_5pqvf")
+
+[node name="HealthBarSFX" type="AudioStreamPlayer" parent="." unique_id=241157045]
+stream = ExtResource("3_5pqvf")
+bus = &"SFX"
+
+[node name="IconContainer" type="HBoxContainer" parent="." unique_id=743297464]
+layout_mode = 1
+offset_right = 24.0
+offset_bottom = 16.0
+theme_override_constants/separation = 0
+
+[node name="HealthIcon" parent="IconContainer" unique_id=1925538192 instance=ExtResource("2_hmcpf")]
+layout_mode = 2
+
+[node name="HealthIcon2" parent="IconContainer" unique_id=465750719 instance=ExtResource("2_hmcpf")]
+layout_mode = 2
+
+[node name="HealthIcon3" parent="IconContainer" unique_id=331122695 instance=ExtResource("2_hmcpf")]
+layout_mode = 2

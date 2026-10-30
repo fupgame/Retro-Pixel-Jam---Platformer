@@ -59,7 +59,9 @@ text = "Effects volume"
 unique_name_in_owner = true
 custom_minimum_size = Vector2(120, 0)
 layout_mode = 2
-value = 50.0
+min_value = -25.0
+max_value = 5.0
+value = -20.0
 
 [node name="FullscreenContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/VBoxContainer" unique_id=998724356]
 layout_mode = 2

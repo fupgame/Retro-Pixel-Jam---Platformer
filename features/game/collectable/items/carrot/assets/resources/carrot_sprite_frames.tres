@@ -1,0 +1,39 @@
+[gd_resource type="SpriteFrames" format=3 uid="uid://5on1rc5ixiht"]
+
+[ext_resource type="Texture2D" uid="uid://dtg7mdxgeht14" path="res://features/game/collectable/items/coin/assets/sprites/items.png" id="1_64rqh"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_878qf"]
+atlas = ExtResource("1_64rqh")
+region = Rect2(0, 32, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_unk5m"]
+atlas = ExtResource("1_64rqh")
+region = Rect2(16, 32, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7bv3p"]
+atlas = ExtResource("1_64rqh")
+region = Rect2(32, 32, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ky2mp"]
+atlas = ExtResource("1_64rqh")
+region = Rect2(48, 32, 16, 16)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_878qf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_unk5m")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7bv3p")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ky2mp")
+}],
+"loop": 1,
+"name": &"idle",
+"speed": 8.0
+}]

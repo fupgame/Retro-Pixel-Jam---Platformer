@@ -1,0 +1,45 @@
+[gd_scene format=3 uid="uid://cxeyhu26fnohi"]
+
+[ext_resource type="Texture2D" uid="uid://ea50715os6va" path="res://features/game/ui/assets/resourses/health_icon_atlas_texture.tres" id="1_310fc"]
+[ext_resource type="Script" uid="uid://ccgwyhl5ccipt" path="res://features/game/ui/health_bar/health_icon.gd" id="2_503c6"]
+[ext_resource type="Texture2D" uid="uid://p2pbpsvbepfm" path="res://features/game/ui/assets/resourses/health_empty_icon_atlas_texture.tres" id="3_f131f"]
+
+[sub_resource type="Gradient" id="Gradient_f131f"]
+colors = PackedColorArray(0.92156863, 0.32941177, 0, 1, 1, 0.7246531, 0.90461904, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_1pdwv"]
+gradient = SubResource("Gradient_f131f")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_f131f"]
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(2, 2, 1)
+use_rotation_3d = true
+gravity = Vector3(0, -40, 0)
+radial_accel_min = -20.000002
+radial_accel_max = 31.019997
+scale_max = 7.12
+color_ramp = SubResource("GradientTexture1D_1pdwv")
+
+[node name="HealthIcon" type="TextureRect" unique_id=1925538192]
+custom_maximum_size = Vector2(12, 12)
+offset_right = 12.0
+offset_bottom = 12.0
+pivot_offset = Vector2(6, 6)
+size_flags_horizontal = 0
+size_flags_vertical = 4
+offset_transform_enabled = true
+texture = ExtResource("1_310fc")
+script = ExtResource("2_503c6")
+fill_icon = ExtResource("1_310fc")
+empty_icon = ExtResource("3_f131f")
+
+[node name="ExplosiveParticles" type="GPUParticles2D" parent="." unique_id=496907562]
+position = Vector2(6, 7)
+emitting = false
+amount = 10
+one_shot = true
+speed_scale = 1.38
+explosiveness = 0.65
+randomness = 0.28
+process_material = SubResource("ParticleProcessMaterial_f131f")

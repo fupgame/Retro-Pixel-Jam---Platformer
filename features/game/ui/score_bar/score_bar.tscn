@@ -1,0 +1,33 @@
+[gd_scene format=3 uid="uid://bu5byn6rv6nyd"]
+
+[ext_resource type="Script" uid="uid://biffw5pdsgf36" path="res://features/game/ui/score_bar/score_bar.gd" id="1_25wf4"]
+[ext_resource type="Texture2D" uid="uid://6314112tvf7i" path="res://features/game/ui/assets/resourses/coin_atlas_texture.tres" id="1_wjusf"]
+
+[node name="ScoreBar" type="Control" unique_id=97678735]
+custom_minimum_size = Vector2(40, 12)
+layout_mode = 3
+anchors_preset = 0
+size_flags_horizontal = 0
+size_flags_vertical = 0
+script = ExtResource("1_25wf4")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=288837691]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -30.0
+offset_bottom = 12.0
+grow_horizontal = 0
+
+[node name="ScoreIcon" type="TextureRect" parent="HBoxContainer" unique_id=511222282]
+custom_maximum_size = Vector2(12, 12)
+layout_mode = 2
+texture = ExtResource("1_wjusf")
+expand_mode = 2
+
+[node name="ScoreLabel" type="Label" parent="HBoxContainer" unique_id=1380603125]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 8
+text = "000"

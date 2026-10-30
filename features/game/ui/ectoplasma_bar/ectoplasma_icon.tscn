@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://dw7miu8ef1bl4"]
+
+[ext_resource type="Texture2D" uid="uid://co4anu3vunpjs" path="res://features/game/ui/assets/resourses/ectoplasma_atlas_texture.tres" id="1_2fsjr"]
+
+[node name="EctoplasmaIcon" type="TextureRect" unique_id=1691846217]
+custom_maximum_size = Vector2(12, 12)
+texture = ExtResource("1_2fsjr")
+expand_mode = 2

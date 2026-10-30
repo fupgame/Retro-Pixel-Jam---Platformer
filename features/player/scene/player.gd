@@ -1,5 +1,9 @@
 class_name Player extends CharacterBody2D
 
+signal damage_taked
+signal heal_taked
+signal pause_requested
+
 enum State {
 	IDLE,
 	RUN,
@@ -72,6 +76,11 @@ func setup() -> void:
 	_current_speed = _max_speed
 	_current_health = _max_health
 	deactived_hit_box()
+
+
+func _process(delta: float) -> void:
+	if _input_handler.is_just_pressed("escape"):
+		pause_requested.emit()
 
 
 func _physics_process(delta: float) -> void:
@@ -317,6 +326,7 @@ func take_damage(_area: Area2D) -> void:
 		return
 	
 	_current_health = maxi(_current_health - 10, 0)
+	damage_taked.emit()
 
 	if _current_health == 0:
 		change_state(State.DEAD)
@@ -338,6 +348,14 @@ func take_damage(_area: Area2D) -> void:
 	velocity.y = _hurt_impulse.y
 	
 	change_state(State.HURT)
+
+
+func heal() -> void:
+	if _current_state == State.DEAD or _current_state == State.HURT:
+		return
+	
+	_current_health = mini(_current_health + 10, _max_health)
+	heal_taked.emit()
 
 
 func actived_hit_box() -> void:
