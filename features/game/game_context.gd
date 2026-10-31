@@ -6,6 +6,7 @@ signal new_game_requested
 enum SubContext {
 	MAP,
 	LEVEL,
+	CUTSCENE,
 	RESULT_GAME,
 }
 
@@ -18,6 +19,7 @@ enum Mission {
 const MAP: PackedScene = preload("uid://dtwt38spt642a")
 const LEVEL: PackedScene = preload("uid://cfbsrft6edo7s")
 const RESULT_GAME: PackedScene = preload("uid://38x7bj2bg4q0")
+const CUTSCENE: PackedScene = preload("uid://m4labdxars4s")
 
 var _current_subcontext: SubContext
 var _current_subcontext_node: Node
@@ -28,6 +30,8 @@ var _sfx_player: SFXPlayer
 var _input_handler: InputHandler
 var _input_blocker: InputBlocker
 var _current_mission: Mission =Mission.MISSION_1
+var _score: int = 0
+var _ectoplasm: = 0
 
 @onready var exit_game_button: Button = %ExitGameButton
 @onready var map_button: Button = %MapButton
@@ -57,7 +61,7 @@ func setup() -> void:
 	_game_state.game_state_changed.connect(game_state_changed)
 	
 	build_game_state()
-	mount_map()
+	mount_cutscene()
 
 
 func mount_map() -> void:
@@ -120,21 +124,36 @@ func mount_result() -> void:
 		_debug.error("Result context not found", self.name)
 		return
 	
+	_score = game_result["score"]
+	_ectoplasm = game_result["ectoplasm"]
+	
 	add_child(result_game_context)
-	result_game_context.build(game_result["score"], game_result["ectoplasm"])
+	result_game_context.build(_score, _ectoplasm)
 	result_game_context.bind_dependencies()
 	result_game_context.setup()
 	
 	_game_state.change_state(GameState.State.RESULT)
 	_game_state.change_mission(_current_mission + 1)
-	#if _game_state.available_missions.size() <= _current_mission + 1:
-		#_game_state.change_mission(_current_mission + 1)
-	#else:
-		#return
 	
-	result_game_context.next_level_requested.connect(mount_level)
+	result_game_context.next_level_requested.connect(mount_map)
 
 
+func mount_cutscene() -> void:
+	demount()
+	
+	_current_subcontext = SubContext.CUTSCENE
+	_current_subcontext_node = CUTSCENE.instantiate()
+	
+	var cutscene_context: Cutscene = _current_subcontext_node as Cutscene
+	
+	if not cutscene_context:
+		_debug.error("Cutscene context not found", self.name)
+		return
+	
+	add_child(cutscene_context)
+	cutscene_context.start_cutscene()
+	
+	cutscene_context.start_game_request.connect(mount_map)
 
 func demount() -> void:
 	if _current_subcontext_node:

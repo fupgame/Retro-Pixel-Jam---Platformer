@@ -3,7 +3,7 @@ class_name MainMenuContext extends Node
 signal start_game_requested
 signal quit_game_requested
 
-const MAIN_MENU_MUSIC: AudioStream = preload("uid://b1nqih3i67iqn")
+const MAIN_MENU_MUSIC: AudioStream = preload("uid://dnnqcmyta17gq")
 
 var _debug: Debug
 var _music_player: MusicPlayer

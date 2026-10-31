@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://doqw0t2jsi5w7"
+path="res://.godot/imported/Going Up.ogg-1b80af3ea7c570ea7aec3627d61e45fc.oggvorbisstr"
+
+[deps]
+
+source_file="res://assets/music/Adventure pack 1 ogg/Going Up.ogg"
+dest_files=["res://.godot/imported/Going Up.ogg-1b80af3ea7c570ea7aec3627d61e45fc.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

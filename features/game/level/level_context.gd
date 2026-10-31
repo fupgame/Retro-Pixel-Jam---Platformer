@@ -7,6 +7,12 @@ signal result_game_requested
 const PLAYER: PackedScene = preload("uid://cuf2n2r328ra8")
 const UI_HUD: PackedScene = preload("uid://b2d0kmpto3638")
 const MENU_PAUSED: PackedScene = preload("uid://lw3bhkcwfc02")
+const MUSICS: Array[AudioStream] = [
+	preload("uid://dnnqcmyta17gq"),
+	preload("uid://ogoodcieqo4j"),
+	preload("uid://cdcni0w6xki8a"),
+	preload("uid://doqw0t2jsi5w7"),
+]
 
 var _level: Level
 var _player: Player
@@ -52,6 +58,8 @@ func setup() -> void:
 	bind_enemies()
 	connect_collectables()
 	connect_enemies()
+	var music: AudioStream = MUSICS.pick_random()
+	_music_player.play_music(music)
 
 
 func mount_level() -> void:

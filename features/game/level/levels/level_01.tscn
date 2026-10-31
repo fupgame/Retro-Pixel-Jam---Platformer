@@ -8,14 +8,12 @@
 [ext_resource type="PackedScene" uid="uid://83yr3euw28j2" path="res://features/game/collectable/collectable.tscn" id="5_riffr"]
 [ext_resource type="PackedScene" uid="uid://dt070nqwpop5x" path="res://features/x-agent/x_agent.tscn" id="7_o0qit"]
 [ext_resource type="PackedScene" uid="uid://dbnxbth44bvgk" path="res://features/game/level/parallax_backgrounds/parallax_background_sky_01.tscn" id="8_f6wbj"]
-[ext_resource type="PackedScene" uid="uid://d0dgbpql8pikq" path="res://features/game/level/finish_level/finish_level.tscn" id="9_rlhky"]
 
-[node name="Level01" type="Node2D" unique_id=506286125 node_paths=PackedStringArray("_player_spawn_position", "_finish_area")]
+[node name="Level01" type="Node2D" unique_id=506286125 node_paths=PackedStringArray("_player_spawn_position")]
 process_mode = 1
 position = Vector2(0, 1)
 script = ExtResource("1_a1owy")
 _player_spawn_position = NodePath("PlayerSpawnPosition")
-_finish_area = NodePath("FinishLevel")
 
 [node name="TileMap" type="Node2D" parent="." unique_id=1574398039]
 modulate = Color(0.96176916, 0.79610246, 0.7740608, 1)
@@ -72,7 +70,7 @@ position = Vector2(3904, 240)
 _max_lenght = 128.0
 
 [node name="PlayerSpawnPosition" type="Marker2D" parent="." unique_id=1977171651]
-position = Vector2(24, 144)
+position = Vector2(40, 144)
 
 [node name="Enemies" type="Node2D" parent="." unique_id=1637052181]
 
@@ -349,7 +347,28 @@ position = Vector2(3936, 408)
 [node name="X-Agent" parent="." unique_id=1725937327 instance=ExtResource("7_o0qit")]
 position = Vector2(4608, 360)
 
-[node name="FinishLevel" parent="." unique_id=949291754 instance=ExtResource("9_rlhky")]
-position = Vector2(272, 127)
+[node name="PanelContainer" type="PanelContainer" parent="." unique_id=1095904050]
+offset_left = 5144.0
+offset_top = -1.0
+offset_right = 5278.0
+offset_bottom = 125.0
+
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer" unique_id=880008542]
+layout_mode = 2
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_right = 4
+theme_override_constants/margin_bottom = 4
+
+[node name="Label" type="Label" parent="PanelContainer/MarginContainer" unique_id=1843964987]
+custom_minimum_size = Vector2(120, 80)
+custom_maximum_size = Vector2(120, -1)
+layout_mode = 2
+theme_override_font_sizes/font_size = 4
+text = "Thanks for playing my game!
+The original plan was to have players find 3 ectoplasms across 3 levels, but I didn't have enough time to implement that (
+So, all three jars are located right here.
+If you found all 3, congratulations! If you didn't, feel free to try and find them all! Good luck!"
+autowrap_mode = 2
 
 [editable path="TileMap/Platform4"]

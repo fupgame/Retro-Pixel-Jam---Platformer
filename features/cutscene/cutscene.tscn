@@ -1,0 +1,64 @@
+[gd_scene format=3 uid="uid://m4labdxars4s"]
+
+[ext_resource type="SpriteFrames" uid="uid://d0y5g57a0b0wo" path="res://features/cutscene/assets/resources/cutscene_sprite_frames.tres" id="1_g66ko"]
+[ext_resource type="Script" uid="uid://djjowjuausw0l" path="res://features/cutscene/cutscene.gd" id="1_ramyy"]
+[ext_resource type="AudioStream" uid="uid://db1c0nf6egu76" path="res://features/cutscene/assets/sfx/Text_Short.wav" id="2_lext3"]
+[ext_resource type="Texture2D" uid="uid://c77npadv6hoak" path="res://features/cutscene/assets/sprites/note.png" id="4_y5x41"]
+
+[node name="Cutscene" type="Node2D" unique_id=1108394985]
+script = ExtResource("1_ramyy")
+
+[node name="TypeSFX" type="AudioStreamPlayer" parent="." unique_id=1694324351]
+stream = ExtResource("2_lext3")
+bus = &"SFX"
+
+[node name="CutsceneAnimation" type="AnimatedSprite2D" parent="." unique_id=1922689096]
+position = Vector2(160, 81)
+sprite_frames = ExtResource("1_g66ko")
+animation = &"start_ufo"
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1747719969]
+
+[node name="Note" type="TextureRect" parent="CanvasLayer" unique_id=127269926]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -160.0
+offset_top = -100.0
+offset_right = 160.0
+offset_bottom = 100.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_y5x41")
+
+[node name="PanelContainer" type="PanelContainer" parent="CanvasLayer" unique_id=448725705]
+custom_minimum_size = Vector2(200, 0)
+custom_maximum_size = Vector2(-1, 30)
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -100.0
+offset_top = -39.0
+offset_right = 100.0
+offset_bottom = -5.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/PanelContainer" unique_id=554292973]
+layout_mode = 2
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_right = 4
+theme_override_constants/margin_bottom = 4
+
+[node name="TextLabel" type="Label" parent="CanvasLayer/PanelContainer/MarginContainer" unique_id=2032089522]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 1
+theme_override_font_sizes/font_size = 4
+autowrap_mode = 2

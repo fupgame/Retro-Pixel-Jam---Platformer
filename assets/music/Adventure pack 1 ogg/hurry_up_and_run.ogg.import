@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://c8lg7mrcb41ga"
+path="res://.godot/imported/hurry_up_and_run.ogg-d49bbbfe7c71790838532936656d9d1d.oggvorbisstr"
+
+[deps]
+
+source_file="res://assets/music/Adventure pack 1 ogg/hurry_up_and_run.ogg"
+dest_files=["res://.godot/imported/hurry_up_and_run.ogg-d49bbbfe7c71790838532936656d9d1d.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
