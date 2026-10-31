@@ -3,6 +3,7 @@ class_name Player extends CharacterBody2D
 signal damage_taked
 signal heal_taked
 signal pause_requested
+signal game_over_request (arg: bool)
 
 enum State {
 	IDLE,
@@ -21,6 +22,9 @@ enum State {
 @onready var arms_animated_sprite: AnimatedSprite2D = $ArmsAnimatedSprite
 @onready var hit_box: Area2D = $HitBox
 @onready var hurt_box: Area2D = $HurtBox
+@onready var player_sfx: AudioStreamPlayer = $PlayerSFX
+@onready var walking_player_sfx: AudioStreamPlayer = $WalkingPlayerSFX
+@onready var pause_sfx: AudioStreamPlayer = $PauseSFX
 
 @export var _max_health:int = 100
 @export var _max_speed: float = 150.0
@@ -36,6 +40,12 @@ enum State {
 @export var _hitbox_start_farme: int = 3
 @export var _hitbox_end_frame: int = 5
 @export var _hurt_impulse: Vector2 = Vector2(80.0, -80.0)
+# SFX
+@export var _jump_sfx: AudioStreamWAV
+@export var _walking_sfx: AudioStreamWAV
+@export var _hit_sfx: AudioStreamWAV
+@export var _hurt_sfx: AudioStreamWAV
+@export var _dead_sfx: AudioStreamWAV
 
 var _current_health: int
 var _current_speed: float = 0.0
@@ -76,11 +86,13 @@ func setup() -> void:
 	_current_speed = _max_speed
 	_current_health = _max_health
 	deactived_hit_box()
+	walking_player_sfx.stream = _walking_sfx
 
 
 func _process(delta: float) -> void:
 	if _input_handler.is_just_pressed("escape"):
 		pause_requested.emit()
+		pause_sfx.play()
 
 
 func _physics_process(delta: float) -> void:
@@ -237,6 +249,34 @@ func animation_controller() -> void:
 		State.DEAD:
 			player_animated_sprite.play("dead")
 
+func sfx_controller() -> void:
+	match _current_state:
+		State.RUN:
+			walking_player_sfx.play()
+		State.IDLE:
+			walking_player_sfx.stop()
+		State.JUMP:
+			if player_sfx.playing:
+				player_sfx.stop()
+			player_sfx.stream = _jump_sfx
+			player_sfx.play()
+		State.HURT:
+			if player_sfx.playing:
+				player_sfx.stop()
+			player_sfx.stream = _hurt_sfx
+			player_sfx.play()
+		State.ATTACK:
+			if player_sfx.playing:
+				player_sfx.stop()
+			player_sfx.stream = _hit_sfx
+			player_sfx.play()
+		State.DEAD:
+			if player_sfx.playing:
+				player_sfx.stop()
+			player_sfx.stream = _dead_sfx
+			player_sfx.play()
+			
+
 
 func start_attack(attack: int) -> void:
 	_max_speed = 10
@@ -267,6 +307,7 @@ func change_state(new_state: State) -> void:
 	
 	_current_state = new_state
 	animation_controller()
+	sfx_controller()
 
 
 func animation_finished() -> void:
@@ -330,6 +371,7 @@ func take_damage(_area: Area2D) -> void:
 
 	if _current_health == 0:
 		change_state(State.DEAD)
+		game_over_request.emit(true)
 		return
 	
 	_current_attack = 0

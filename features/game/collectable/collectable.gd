@@ -17,6 +17,7 @@ enum ItemType{
 var _is_collected: bool = false
 var animated_sprite: AnimatedSprite2D
 var collect_sfx: AudioStreamPlayer2D
+var particles: GPUParticles2D
 
 @export var type: ItemType:
 	set(value):
@@ -37,6 +38,7 @@ func _ready() -> void:
 func update_data() -> void:
 	animated_sprite = get_node_or_null("AnimatedSprite")
 	collect_sfx = get_node_or_null("CollectSFX")
+	particles = get_node_or_null("GPUParticles2D")
 	
 	if not animated_sprite:
 		return
@@ -46,14 +48,17 @@ func update_data() -> void:
 			name = "Coin"
 			animated_sprite.sprite_frames = coin_frames
 			collect_sfx.stream = coin_sfx
+			particles.emitting = false
 		ItemType.CARROT:
 			name = "Carrot"
 			animated_sprite.sprite_frames =  carrot_frames
 			collect_sfx.stream = carrot_sfx
+			particles.emitting = false
 		ItemType.ECTOPLASM:
 			name = "Ectoplasm"
 			animated_sprite.sprite_frames = ectoplasm_frames
 			collect_sfx.stream = ectoplasm_sfx
+			particles.emitting = true
 			
 	animated_sprite.play("idle")
 

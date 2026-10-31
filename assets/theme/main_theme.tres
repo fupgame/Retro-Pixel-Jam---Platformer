@@ -1,8 +1,108 @@
 [gd_resource type="Theme" format=3 uid="uid://bqtgblvh07e00"]
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_5d7lq"]
+[ext_resource type="Texture2D" uid="uid://bd7db4jsq3hhb" path="res://assets/theme/theme.png" id="1_e04sg"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bf6fq"]
+atlas = ExtResource("1_e04sg")
+region = Rect2(8, 0, 8, 8)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_5d7lq"]
+texture = SubResource("AtlasTexture_bf6fq")
+texture_margin_left = 3.0
+texture_margin_top = 3.0
+texture_margin_right = 3.0
+texture_margin_bottom = 3.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nqjs2"]
+atlas = ExtResource("1_e04sg")
+region = Rect2(0, 0, 8, 8)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ea1tc"]
+content_margin_left = 4.0
+content_margin_top = 6.0
+content_margin_right = 4.0
+content_margin_bottom = 6.0
+texture = SubResource("AtlasTexture_nqjs2")
+texture_margin_left = 3.0
+texture_margin_top = 3.0
+texture_margin_right = 3.0
+texture_margin_bottom = 3.0
+region_rect = Rect2(0, 0, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5awv5"]
+atlas = ExtResource("1_e04sg")
+region = Rect2(8, 16, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tnish"]
+atlas = ExtResource("1_e04sg")
+region = Rect2(0, 16, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e04sg"]
+atlas = ExtResource("1_e04sg")
+region = Rect2(8, 8, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_thknt"]
+atlas = ExtResource("1_e04sg")
+region = Rect2(16, 8, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_634fi"]
+atlas = ExtResource("1_e04sg")
+region = Rect2(0, 8, 6, 4)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_5awv5"]
+texture = SubResource("AtlasTexture_634fi")
+texture_margin_left = 1.0
+texture_margin_top = 2.0
+texture_margin_right = 1.0
+texture_margin_bottom = 2.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hasmp"]
+atlas = ExtResource("1_e04sg")
+region = Rect2(0, 12, 6, 4)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_n2yp4"]
+texture = SubResource("AtlasTexture_hasmp")
+texture_margin_left = 2.0
+texture_margin_top = 2.0
+texture_margin_right = 2.0
+texture_margin_bottom = 2.0
+region_rect = Rect2(0, 0, 6, 4)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4001u"]
+atlas = ExtResource("1_e04sg")
+region = Rect2(16, 0, 8, 8)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_4001u"]
+texture = SubResource("AtlasTexture_4001u")
+texture_margin_left = 3.0
+texture_margin_top = 3.0
+texture_margin_right = 3.0
+texture_margin_bottom = 3.0
 
 [resource]
-Button/font_sizes/font_size = 6
-HSlider/constants/center_grabber = 0
-PanelContainer/styles/panel = SubResource("StyleBoxEmpty_5d7lq")
+Button/colors/font_color = Color(0, 0, 0, 1)
+Button/font_sizes/font_size = 5
+Button/styles/hover = SubResource("StyleBoxTexture_5d7lq")
+Button/styles/normal = SubResource("StyleBoxTexture_ea1tc")
+CheckBox/icons/checked = SubResource("AtlasTexture_5awv5")
+CheckBox/icons/unchecked = SubResource("AtlasTexture_tnish")
+CheckBox/icons/unchecked_disabled = null
+CheckBox/styles/disabled = null
+CheckBox/styles/disabled_mirrored = null
+CheckBox/styles/focus = null
+CheckBox/styles/hover = null
+CheckBox/styles/hover_mirrored = null
+CheckBox/styles/hover_pressed = null
+CheckBox/styles/hover_pressed_mirrored = null
+CheckBox/styles/normal = null
+CheckBox/styles/normal_mirrored = null
+CheckBox/styles/pressed = null
+CheckBox/styles/pressed_mirrored = null
+HSlider/icons/grabber = SubResource("AtlasTexture_e04sg")
+HSlider/icons/grabber_disabled = SubResource("AtlasTexture_e04sg")
+HSlider/icons/grabber_highlight = SubResource("AtlasTexture_thknt")
+HSlider/icons/tick = null
+HSlider/styles/grabber_area = SubResource("StyleBoxTexture_5awv5")
+HSlider/styles/grabber_area_highlight = SubResource("StyleBoxTexture_5awv5")
+HSlider/styles/slider = SubResource("StyleBoxTexture_n2yp4")
+PanelContainer/styles/panel = SubResource("StyleBoxTexture_4001u")

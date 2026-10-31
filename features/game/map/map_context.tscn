@@ -58,18 +58,6 @@ _data = {
 &"move_to_point_3": SubResource("Animation_k17ek")
 }
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_n2yp4"]
-content_margin_left = 0.0
-content_margin_top = 0.0
-content_margin_right = 0.0
-content_margin_bottom = 0.0
-bg_color = Color(0.101960786, 0.101960786, 0.101960786, 0.87058824)
-corner_radius_top_left = 3
-corner_radius_top_right = 3
-corner_radius_bottom_right = 3
-corner_radius_bottom_left = 3
-corner_detail = 5
-
 [node name="MapContext" type="Node2D" unique_id=1807959226]
 script = ExtResource("1_ukraa")
 
@@ -116,7 +104,6 @@ custom_minimum_size = Vector2(120, 80)
 layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 3
-theme_override_styles/panel = SubResource("StyleBoxFlat_n2yp4")
 
 [node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/MarginContainer/PanelContainer" unique_id=344132637]
 layout_mode = 2

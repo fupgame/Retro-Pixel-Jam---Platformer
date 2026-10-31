@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://bcluv15s0f3a2" path="res://features/game/menu_paused/menu_paused.gd" id="1_gt4c2"]
 [ext_resource type="AudioStream" uid="uid://bxwuwcm6cuoe8" path="res://features/game/menu_paused/assets/sfx/Checkpoint.wav" id="2_d6fou"]
 [ext_resource type="Theme" uid="uid://bqtgblvh07e00" path="res://assets/theme/main_theme.tres" id="2_yops0"]
+[ext_resource type="AudioStream" uid="uid://cvfkkqs2vp4dr" path="res://features/game/menu_paused/assets/sfx/Player_Died.wav" id="3_xu5bq"]
 
 [node name="MenuPause" type="CanvasLayer" unique_id=951860645]
 script = ExtResource("1_gt4c2")
@@ -11,40 +12,61 @@ script = ExtResource("1_gt4c2")
 stream = ExtResource("2_d6fou")
 bus = &"SFX"
 
-[node name="PanelContainer" type="PanelContainer" parent="." unique_id=615007732]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -20.0
-offset_top = -20.0
-offset_right = 20.0
-offset_bottom = 20.0
+[node name="GameOverSFX" type="AudioStreamPlayer" parent="." unique_id=2001568984]
+stream = ExtResource("3_xu5bq")
+bus = &"SFX"
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=911109869]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
 
-[node name="MarginContainer" type="MarginContainer" parent="PanelContainer" unique_id=1272657750]
+[node name="PanelContainer" type="PanelContainer" parent="MarginContainer" unique_id=615007732]
 layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
 
-[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/MarginContainer" unique_id=1392617980]
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/PanelContainer" unique_id=1272657750]
 layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/PanelContainer/MarginContainer" unique_id=1392617980]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
 theme_override_constants/separation = 10
 
-[node name="Label" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer" unique_id=688449810]
+[node name="TitleLabel" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer" unique_id=688449810]
+unique_name_in_owner = true
 layout_mode = 2
 text = "Pause"
 
-[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer" unique_id=1860287131]
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer" unique_id=1860287131]
 layout_mode = 2
 
-[node name="ContinueButton" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer/VBoxContainer" unique_id=1750403908]
+[node name="NewGameButton" type="Button" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/VBoxContainer" unique_id=1750403908]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+theme = ExtResource("2_yops0")
+text = "New Game"
+
+[node name="ContinueButton" type="Button" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/VBoxContainer" unique_id=1217374095]
 unique_name_in_owner = true
 layout_mode = 2
 theme = ExtResource("2_yops0")
 text = "Continue"
 
-[node name="ExitButton" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer/VBoxContainer" unique_id=465811627]
+[node name="ExitButton" type="Button" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/VBoxContainer" unique_id=465811627]
 unique_name_in_owner = true
 layout_mode = 2
 theme = ExtResource("2_yops0")

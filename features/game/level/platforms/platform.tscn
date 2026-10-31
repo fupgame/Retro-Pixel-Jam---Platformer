@@ -11,6 +11,6 @@ script = ExtResource("1_236uo")
 _duration = 4.0
 
 [node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=3448117]
-tile_map_data = PackedByteArray(0, 0, 255, 255, 0, 0, 1, 0, 1, 0, 3, 0, 0, 0, 0, 0, 0, 0, 1, 0, 1, 0, 3, 0, 0, 0, 254, 255, 0, 0, 1, 0, 0, 0, 3, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0, 3, 0, 0, 0)
+tile_map_data = PackedByteArray(0, 0, 255, 255, 0, 0, 1, 0, 7, 0, 8, 0, 0, 0, 0, 0, 0, 0, 1, 0, 7, 0, 8, 0, 0, 0, 254, 255, 0, 0, 1, 0, 6, 0, 8, 0, 0, 0, 1, 0, 0, 0, 1, 0, 8, 0, 8, 0, 0, 0)
 tile_set = ExtResource("1_u7vgb")
 use_kinematic_bodies = true

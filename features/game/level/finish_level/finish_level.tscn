@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://d0dgbpql8pikq"]
+
+[ext_resource type="Script" uid="uid://dhedhtg8xfclt" path="res://features/game/level/finish_level/finish_level.gd" id="1_3efte"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ikn6h"]
+
+[node name="FinishLevel" type="Area2D" unique_id=949291754]
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("1_3efte")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=464884960]
+shape = SubResource("RectangleShape2D_ikn6h")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

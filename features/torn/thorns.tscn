@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://chsi341eqt7dn"]
+
+[ext_resource type="Texture2D" uid="uid://l5r8reg75ymt" path="res://features/game/level/levels/cansas/assets/sprites/tilemap_cansas.png" id="1_tiogy"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ebd0e"]
+size = Vector2(48, 8)
+
+[node name="Thorns" type="Node2D" unique_id=359353833]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1911195986]
+texture = ExtResource("1_tiogy")
+region_enabled = true
+region_rect = Rect2(0, 144, 48, 16)
+
+[node name="HitBox" type="Area2D" parent="." unique_id=83438661]
+collision_layer = 256
+collision_mask = 0
+
+[node name="HitBoxCollisionShape" type="CollisionShape2D" parent="HitBox" unique_id=118924086]
+position = Vector2(0, 4)
+shape = SubResource("RectangleShape2D_ebd0e")
+debug_color = Color(0.8795105, 0.2568274, 0.56828874, 0.41960785)

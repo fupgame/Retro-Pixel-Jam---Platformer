@@ -15,7 +15,10 @@ func update_icons() -> void:
 	if _quantity_ectoplasm == 0:
 		return
 	
-	var new_icon: TextureRect = _ectoplasm_icon_scene.instantiate()
+	if not icon_container.get_children().is_empty():
+		for icon in icon_container.get_children():
+			icon.queue_free()
 	
 	for i in _quantity_ectoplasm:
+		var new_icon: TextureRect = _ectoplasm_icon_scene.instantiate()
 		icon_container.add_child(new_icon)

@@ -2,15 +2,21 @@
 
 [ext_resource type="SpriteFrames" uid="uid://u5dth05wgfmt" path="res://features/player/resources/animated_sprites/player_sprite_frames.tres" id="1_icrnf"]
 [ext_resource type="Script" uid="uid://c4rfs22gilrke" path="res://features/player/scene/player.gd" id="1_sbatd"]
+[ext_resource type="AudioStream" uid="uid://t5npv85pndrx" path="res://features/player/assets/sfx/Jump.wav" id="2_ea1tc"]
 [ext_resource type="SpriteFrames" uid="uid://ho6rt7wrkybc" path="res://features/player/resources/animated_sprites/player_attack_sprite_frames.tres" id="3_fkmm5"]
+[ext_resource type="AudioStream" uid="uid://c158v4oudis6o" path="res://features/player/assets/sfx/Walking_On_Grass_Slow.wav" id="3_l8l33"]
+[ext_resource type="AudioStream" uid="uid://cg1lrfbrbpuk8" path="res://features/player/assets/sfx/Hit_Enamy_3.wav" id="4_ea1tc"]
 [ext_resource type="SpriteFrames" uid="uid://cotim28x0fs4n" path="res://features/player/resources/animated_sprites/arms_sprite_frames.tres" id="4_gohu5"]
+[ext_resource type="AudioStream" uid="uid://c5cl33knbm6hp" path="res://features/player/assets/sfx/Orc_Hit02.wav" id="5_2pxaw"]
+[ext_resource type="AudioStream" uid="uid://cvfkkqs2vp4dr" path="res://features/game/menu_paused/assets/sfx/Player_Died.wav" id="6_nqjs2"]
+[ext_resource type="AudioStream" uid="uid://bxwuwcm6cuoe8" path="res://features/game/menu_paused/assets/sfx/Checkpoint.wav" id="7_l8l33"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_sbatd"]
 radius = 5.0
 height = 22.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ikn6h"]
-size = Vector2(29, 12)
+size = Vector2(34, 12)
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_gohu5"]
 radius = 5.0
@@ -28,8 +34,26 @@ _max_health = 30
 _jump_force = -280.0
 _coyote_time = 0.2
 _gravity = 980.0
+_jump_sfx = ExtResource("2_ea1tc")
+_walking_sfx = ExtResource("3_l8l33")
+_hit_sfx = ExtResource("4_ea1tc")
+_hurt_sfx = ExtResource("5_2pxaw")
+_dead_sfx = ExtResource("6_nqjs2")
+
+[node name="PauseSFX" type="AudioStreamPlayer" parent="." unique_id=584401895]
+stream = ExtResource("7_l8l33")
+bus = &"SFX"
+
+[node name="PlayerSFX" type="AudioStreamPlayer" parent="." unique_id=534783645]
+volume_db = -10.0
+bus = &"SFX"
+
+[node name="WalkingPlayerSFX" type="AudioStreamPlayer" parent="." unique_id=168744536]
+volume_db = -12.0
+bus = &"SFX"
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=416599188]
+position_smoothing_speed = 4.0
 
 [node name="PlayerAnimatedSprite" type="AnimatedSprite2D" parent="." unique_id=1933363206]
 position = Vector2(0, -16)
@@ -59,7 +83,7 @@ collision_layer = 64
 collision_mask = 0
 
 [node name="HitBoxCollisionShape" type="CollisionShape2D" parent="HitBox" unique_id=1386749584]
-position = Vector2(14.5, -8)
+position = Vector2(17, -8)
 shape = SubResource("RectangleShape2D_ikn6h")
 debug_color = Color(0.8795105, 0.2568274, 0.56828874, 0.41960785)
 

@@ -1,5 +1,7 @@
 class_name Enemy extends CharacterBody2D
 
+signal enemy_died
+
 enum State {
 	IDLE,
 	PATROL,
@@ -170,6 +172,7 @@ func animation_controller() -> void:
 			animated_sprite.play("dead")
 			await animated_sprite.animation_finished 
 			_is_died = true
+			enemy_died.emit()
 
 
 func actived_hit_box() -> void:

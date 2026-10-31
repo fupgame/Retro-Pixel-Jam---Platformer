@@ -8,6 +8,25 @@
 [ext_resource type="SpriteFrames" uid="uid://bs47bjtf48pwd" path="res://features/game/collectable/items/ektoplasma/assets/resources/ectoplasma_sprite_frames.tres" id="4_cmyh6"]
 [ext_resource type="AudioStream" uid="uid://ciexr0jxj615p" path="res://features/game/collectable/items/ektoplasma/assets/sfx/Activate_Power.wav" id="6_cmyh6"]
 
+[sub_resource type="Gradient" id="Gradient_2t0tp"]
+offsets = PackedFloat32Array(0.0012690355, 1)
+colors = PackedColorArray(0.47058824, 0.89411765, 0.6, 0.80784315, 0.8666667, 0.9254902, 0.78431374, 0.2784314)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_2t0tp"]
+gradient = SubResource("Gradient_2t0tp")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_2t0tp"]
+particle_flag_disable_z = true
+emission_shape = 1
+emission_sphere_radius = 20.45
+gravity = Vector3(0, 0, 0)
+radial_accel_min = -10.200002
+radial_accel_max = 9.799997
+scale_min = 0.0
+scale_max = 4.0
+color = Color(0.45496255, 0.87800217, 0.70621675, 1)
+color_ramp = SubResource("GradientTexture1D_2t0tp")
+
 [sub_resource type="CircleShape2D" id="CircleShape2D_ikn6h"]
 
 [node name="Coin" type="Node2D" unique_id=1729960315]
@@ -19,6 +38,10 @@ coin_sfx = ExtResource("2_y44ts")
 ectoplasm_frames = ExtResource("4_cmyh6")
 ectoplasm_sfx = ExtResource("6_cmyh6")
 
+[node name="GPUParticles2D" type="GPUParticles2D" parent="." unique_id=1539884816]
+emitting = false
+process_material = SubResource("ParticleProcessMaterial_2t0tp")
+
 [node name="CollectSFX" type="AudioStreamPlayer2D" parent="." unique_id=341647330]
 stream = ExtResource("2_y44ts")
 bus = &"SFX"
@@ -26,9 +49,10 @@ bus = &"SFX"
 [node name="AnimatedSprite" type="AnimatedSprite2D" parent="." unique_id=40194929]
 sprite_frames = ExtResource("3_a4wxr")
 animation = &"idle"
-frame_progress = 0.78802377
+frame_progress = 0.9631997
 
 [node name="CollectedArea" type="Area2D" parent="." unique_id=908884808]
+z_index = 1
 collision_layer = 8
 collision_mask = 2
 

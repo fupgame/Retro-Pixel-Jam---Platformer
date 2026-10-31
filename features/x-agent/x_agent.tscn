@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://dt070nqwpop5x"]
+
+[ext_resource type="Script" uid="uid://21t3pdq3ao55" path="res://features/x-agent/x_agent.gd" id="1_08uwd"]
+[ext_resource type="SpriteFrames" uid="uid://dg1p02pntmy2r" path="res://features/x-agent/assets/resourses/x-agent_sprite_frames.tres" id="1_lqpf4"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lqpf4"]
+size = Vector2(20, 104)
+
+[node name="X-Agent" type="Node2D" unique_id=1725937327]
+script = ExtResource("1_08uwd")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1429363239]
+sprite_frames = ExtResource("1_lqpf4")
+animation = &"idle"
+autoplay = "idle"
+
+[node name="Trigger" type="Area2D" parent="." unique_id=166773852]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Trigger" unique_id=1161114133]
+position = Vector2(-8, 8)
+shape = SubResource("RectangleShape2D_lqpf4")

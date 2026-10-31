@@ -3,10 +3,15 @@
 [ext_resource type="Script" uid="uid://b0tpo8eca6ejc" path="res://features/main_menu/ui/main_menu_ui.gd" id="1_4bjlx"]
 [ext_resource type="Theme" uid="uid://bqtgblvh07e00" path="res://assets/theme/main_theme.tres" id="1_jv00w"]
 
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_h7rwy"]
+
+[sub_resource type="Theme" id="Theme_bf6fq"]
+PanelContainer/styles/panel = SubResource("StyleBoxEmpty_h7rwy")
+
 [node name="MainMenuUi" type="PanelContainer" unique_id=1666463573]
 size_flags_horizontal = 4
 size_flags_vertical = 8
-theme = ExtResource("1_jv00w")
+theme = SubResource("Theme_bf6fq")
 script = ExtResource("1_4bjlx")
 
 [node name="MarginContainer" type="MarginContainer" parent="." unique_id=17968217]

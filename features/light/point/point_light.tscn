@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://dqv7xn68irhb0"]
+
+[ext_resource type="Texture2D" uid="uid://dahe6ffm8g1ka" path="res://features/light/point/light.png" id="1_fysab"]
+
+[node name="PointLight2D" type="PointLight2D" unique_id=681741116]
+texture = ExtResource("1_fysab")

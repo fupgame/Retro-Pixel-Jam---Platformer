@@ -94,6 +94,7 @@ func mount_game() -> void:
 	game_context.setup()
 	
 	game_context.main_menu_requested.connect(mount_main_menu)
+	game_context.new_game_requested.connect(mount_game)
 
 
 func demount() -> void:

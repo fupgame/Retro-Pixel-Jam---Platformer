@@ -1,13 +1,94 @@
 [gd_scene format=3 uid="uid://38x7bj2bg4q0"]
 
 [ext_resource type="Script" uid="uid://dgcyg3886eya4" path="res://features/game/result_game/result_game.gd" id="1_kvidx"]
+[ext_resource type="Texture2D" uid="uid://dqu6suyy25aud" path="res://features/game/level/parallax_backgrounds/sprites/backgrounds.png" id="2_7gdsq"]
+[ext_resource type="Texture2D" uid="uid://bfaobruq0q6ar" path="res://features/game/level/parallax_backgrounds/sprites/mounts.png" id="3_ih8fj"]
+[ext_resource type="Texture2D" uid="uid://cnvihiquucgsl" path="res://features/game/level/parallax_backgrounds/sprites/forest.png" id="4_lyv8x"]
 
-[node name="ResultGame" type="Node2D" unique_id=1603970647]
+[node name="ResultGame" type="Node2D" unique_id=863013473]
 script = ExtResource("1_kvidx")
 
-[node name="Label" type="Label" parent="." unique_id=1992539035]
-offset_left = 11.0
-offset_top = 16.0
-offset_right = 110.0
-offset_bottom = 39.0
-text = "Result Game Context"
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=624577874]
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer" unique_id=275946858]
+offset_right = 340.0
+offset_bottom = 200.0
+texture = ExtResource("2_7gdsq")
+
+[node name="TextureRect2" type="TextureRect" parent="CanvasLayer" unique_id=1697987119]
+offset_right = 340.0
+offset_bottom = 200.0
+texture = ExtResource("3_ih8fj")
+
+[node name="TextureRect3" type="TextureRect" parent="CanvasLayer" unique_id=928677060]
+offset_right = 340.0
+offset_bottom = 200.0
+texture = ExtResource("4_lyv8x")
+
+[node name="PanelContainer" type="PanelContainer" parent="CanvasLayer" unique_id=1209800278]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -68.0
+offset_top = -51.5
+offset_right = 68.0
+offset_bottom = 51.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/PanelContainer" unique_id=814225492]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/PanelContainer/MarginContainer" unique_id=1224214827]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="Label" type="Label" parent="CanvasLayer/PanelContainer/MarginContainer/VBoxContainer" unique_id=1740421383]
+layout_mode = 2
+theme_override_font_sizes/font_size = 6
+text = "Level Completed"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/PanelContainer/MarginContainer/VBoxContainer" unique_id=377007510]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="Stat" type="HBoxContainer" parent="CanvasLayer/PanelContainer/MarginContainer/VBoxContainer/VBoxContainer" unique_id=599981700]
+layout_mode = 2
+
+[node name="TitleLabel" type="Label" parent="CanvasLayer/PanelContainer/MarginContainer/VBoxContainer/VBoxContainer/Stat" unique_id=120422084]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 4
+text = "Score"
+
+[node name="Count1" type="Label" parent="CanvasLayer/PanelContainer/MarginContainer/VBoxContainer/VBoxContainer/Stat" unique_id=2027638168]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 4
+text = "0	"
+
+[node name="Stat2" type="HBoxContainer" parent="CanvasLayer/PanelContainer/MarginContainer/VBoxContainer/VBoxContainer" unique_id=608329881]
+layout_mode = 2
+
+[node name="TitleLabel" type="Label" parent="CanvasLayer/PanelContainer/MarginContainer/VBoxContainer/VBoxContainer/Stat2" unique_id=2087025964]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 4
+text = "Ectoplasm"
+
+[node name="Count2" type="Label" parent="CanvasLayer/PanelContainer/MarginContainer/VBoxContainer/VBoxContainer/Stat2" unique_id=1754311929]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 4
+text = "0	"
+
+[node name="ContinueButton" type="Button" parent="CanvasLayer/PanelContainer/MarginContainer/VBoxContainer/VBoxContainer" unique_id=1120463254]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Continue"

@@ -1,0 +1,32 @@
+[gd_scene format=3 uid="uid://dbnxbth44bvgk"]
+
+[ext_resource type="Texture2D" uid="uid://dqu6suyy25aud" path="res://features/game/level/parallax_backgrounds/sprites/backgrounds.png" id="1_bdigr"]
+[ext_resource type="Texture2D" uid="uid://bfaobruq0q6ar" path="res://features/game/level/parallax_backgrounds/sprites/mounts.png" id="2_c267r"]
+[ext_resource type="Texture2D" uid="uid://cnvihiquucgsl" path="res://features/game/level/parallax_backgrounds/sprites/forest.png" id="3_0d1b4"]
+
+[node name="ParallaxBackground" type="Node2D" unique_id=1979665029]
+z_index = -5
+
+[node name="Parallax2D2" type="Parallax2D" parent="." unique_id=184050492]
+scroll_scale = Vector2(0.2, 0.2)
+repeat_size = Vector2(340, 200)
+
+[node name="Sprite2D" type="Sprite2D" parent="Parallax2D2" unique_id=491982068]
+position = Vector2(160, 90)
+texture = ExtResource("1_bdigr")
+
+[node name="Parallax2D" type="Parallax2D" parent="." unique_id=1085960749]
+scroll_scale = Vector2(0.4, 0.4)
+repeat_size = Vector2(340, 200)
+
+[node name="Sprite2D2" type="Sprite2D" parent="Parallax2D" unique_id=383982370]
+position = Vector2(160, 90)
+texture = ExtResource("2_c267r")
+
+[node name="Parallax2D3" type="Parallax2D" parent="." unique_id=1386389679]
+scroll_scale = Vector2(0.8, 0.8)
+repeat_size = Vector2(340, 200)
+
+[node name="Sprite2D2" type="Sprite2D" parent="Parallax2D3" unique_id=1351796906]
+position = Vector2(160, 90)
+texture = ExtResource("3_0d1b4")
